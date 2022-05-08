@@ -13,12 +13,12 @@ Pour débuter l’installation de Docker sur Debian il faut commencer par une mi
 ``apt update && apt full-upgrade -y``
 
 Installation des dépendances : 
-    apt-get install \
+    ```apt-get install \
     apt-transport-https \
     ca-certificates \
     curl \
     gnupg \
-    lsb-release``
+    lsb-release```
 	
 Ajout de la clé GPG officielle de Docker :
 ``curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg``
