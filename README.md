@@ -1,14 +1,14 @@
-#Projet Docker ITS 2
+# Projet Docker ITS 2
 
 -----------------
 
-##Objectif du projet
+## Objectif du projet
 Mise en place d'une infrastructure composée d'un client, d'un serveur et d'un firewall. Chacun d'eux sont situés dans un container Docker. 
 Afin de faciliter la mise en place des containers nous avons utilisé *Docker_compose*. 
 
 -----------------
 
-##Installation de Docker
+## Installation de Docker
 Pour débuter l’installation de Docker sur Debian il faut commencer par une mise à jour :
 ``apt update && apt full-upgrade -y``
 
@@ -39,7 +39,7 @@ Vérification de l’installation de Docker :
 
 -----------------
 
-##Installation de Docker-compose
+## Installation de Docker-compose
 Installation de Docker-Compose via Github
 ``sudo curl -L https://github.com/docker/compose/releases/download/v2.0.1/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose``
 
@@ -51,7 +51,7 @@ On vérifie la version installée
 
 -----------------
 
-##Infrastucture utilisée
+## Infrastucture utilisée
 ``
 Projet/
 ├── docker-compose.yml
