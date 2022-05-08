@@ -285,7 +285,7 @@ Et enfin, le firewall va mettre en place plusieurs règles afin de filtrer les a
 
 
 ## Schéma finale de l'infrastructure
-![Infrastructure](https://zupimages.net/viewer.php?id=22/18/10a0.jpg)
+![Infrastructure](https://zupimages.net/up/22/18/10a0.jpg)
 
 ```
 							VM 																	      (eth0: 192.168.1.67/24)					 		 					        					 |						 
