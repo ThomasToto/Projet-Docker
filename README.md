@@ -287,7 +287,7 @@ Les tables ont bien été définies :
 ![Tables](https://zupimages.net/up/22/18/s06q.jpg)
 
 Le client peut atteindre le serveur : 
-![Client](https://zupimages.net/up/22/18/ikxt.jpg)
+![Client](https://zupimages.net/up/22/18/ual8.jpg)
 
 Le serveur va alors se lancer et mettre à disposition une page web. Le client va effectuer un *curl* afin de récupérer et afficher le contenu de la page. 
 Et enfin, le firewall va mettre en place plusieurs règles afin de filtrer les adresses IP accédant au serveur
