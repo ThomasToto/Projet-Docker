@@ -280,6 +280,15 @@ docker-compose build
 docker-compose up
 ```
 
+Les 3 containeurs sont bien lancés : 
+![Lancement](https://zupimages.net/up/22/18/dll3.jpg)
+
+Les tables ont bien été définies : 
+![Tables](https://zupimages.net/up/22/18/s06q.jpg)
+
+Le client peut atteindre le serveur : 
+![Client](https://zupimages.net/up/22/18/ikxt.jpg)
+
 Le serveur va alors se lancer et mettre à disposition une page web. Le client va effectuer un *curl* afin de récupérer et afficher le contenu de la page. 
 Et enfin, le firewall va mettre en place plusieurs règles afin de filtrer les adresses IP accédant au serveur
 
@@ -287,16 +296,4 @@ Et enfin, le firewall va mettre en place plusieurs règles afin de filtrer les a
 ## Schéma finale de l'infrastructure
 ![Infrastructure](https://zupimages.net/up/22/18/10a0.jpg)
 
-```
-							VM 																	      (eth0: 192.168.1.67/24)					 		 					        					 |						 
-							 |
-		 --------------------------------------------------------------------------------
-		 |									        |									 |			      (Docker0: 172.17.0.1/16)                          |	 					 			 |										|        
-		 --------------------------------------------------------------------------------
-			   VethX			VethY			VethZ
-			     |				  |		          |
-			     |				  |			  |
-		           Serveur 			Client		       Firewall			
-			(172.17.0.2/16)		    (172.17.0.3/16)         (172.17.0.4/16)
-			
-```
+
