@@ -286,19 +286,15 @@ Et enfin, le firewall va mettre en place plusieurs règles afin de filtrer les a
 
 ## Schéma finale de l'infrastructure
 ```
-												VM 															# Machine virtuelle avec une interface eth0 en 192.168.1.67/24
-									  (eth0: 192.168.1.67/24)
-												|
-												|
-			--------------------------------------------------------------------------------
-			|																			   |
-			|							Docker0: 172.17.0.1/16)							   |				# Interface réseau Docker0 de la VM en 172.17.0.1/16
-			|																			   |
-			--------------------------------------------------------------------------------
-				  VethX							VethY						VethZ
-					|							  |							  |
-					|							  |							  |
-				 Serveur 						Client					   Firewall							# Les containers 
-			 (172.17.0.2/16)				(172.17.0.3/16)				(172.17.0.4/16)
+							VM 																	      (eth0: 192.168.1.67/24)				       # Machine virtuelle avec une interface eth0 		 					         |						 en 192.168.1.67/24
+							 |
+		 --------------------------------------------------------------------------------
+		 |									        |									 |			      (Docker0: 172.17.0.1/16)                          |	# Interface réseau Docker0 de 					 |										|         la VM en 172.17.0.1/16
+		 --------------------------------------------------------------------------------
+			   VethX			VethY			VethZ
+			     |				  |		          |
+			     |				  |			  |
+		           Serveur 			Client		       Firewall			# Les containers 
+			(172.17.0.2/16)		    (172.17.0.3/16)         (172.17.0.4/16)
 			
 ```
