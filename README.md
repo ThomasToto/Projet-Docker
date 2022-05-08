@@ -54,7 +54,7 @@ On vérifie la version installée
 -----------------
 
 ## Infrastucture utilisée
-
+```
 Projet/
 ├── docker-compose.yml
 │
@@ -71,7 +71,7 @@ Projet/
 │   ├── clean.sh    # Réinitialise toutes les configurations des tables (iptables)
 │   ├── Dockerfile  # Fichier Dockerfile
 │   ├── firewall.sh # Toutes les règles du firewall
-
+```
 -----------------
 
 ## Contenu des fichiers
