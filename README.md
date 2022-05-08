@@ -80,7 +80,7 @@ Projet/
 
 Fichier docker-compose.yml : 
 
-``
+```
 version: "3"
 services:
   server:
@@ -109,13 +109,13 @@ services:
       bash -c "./clean.sh && ./firewall.sh"
     depends_on:
       - client
-``
+```
 
 ### Client
 
 Fichier client.py : 
 
-``
+```
 #!/usr/bin/env python3
 
 import urllib.request
@@ -135,30 +135,30 @@ variable = 10
 while True:
   if variable != 10:
     break
-``
+```
 
 Fichier Dockerfile (client) : 
 
-``
+```
 FROM python:latest
 
 ADD client.py /client/
 
 WORKDIR /client/
-``
+```
 
 ### Server
 
 Fichier index.html : 
 
-``
+```
 Serveur web de Thomas
-``
+```
 
 
 Fichier server.py : 
 
-``
+```
 #!/usr/bin/env python3
 
 import http.server
@@ -169,25 +169,25 @@ handler = http.server.SimpleHTTPRequestHandler
 with socketserver.TCPServer(("", 1234), handler) as httpd:
     httpd.serve_forever()
 	
-``
+```
 
 Fichier Dockerfile (server) :
 
-``
+```
 FROM python:latest
 
 ADD server.py /server/
 ADD index.html /server/
 
 WORKDIR /server/
-``
+```
 
 
 ### Firewall
 
 Fichier clean.sh : 
 
-``
+```
 #!/bin/bash
 
 yes | apt update
@@ -210,12 +210,12 @@ iptables -P FORWARD ACCEPT
 echo '====== Etat chaines finales ======'
 # On affiche nos chaines finales
 iptables -L
-``
+```
 
 
 Fichier firewall.sh
 
-``
+```
 
 # Autorise tout le trafic de loopback (lo0) et supprime tout le trafic vers 127/8 qui n'utilise pas lo0
 iptables -A INPUT -i lo -j ACCEPT
@@ -253,19 +253,19 @@ while true
 do
         sleep 1
 done
-``
+```
 
 
 Fichier Dockerfile (firewall) :
 
-``
+```
 FROM python:latest
 
 ADD clean.sh /firewall/
 ADD firewall.sh /firewall/
 
 WORKDIR /firewall/
-``
+```
 
 -----------------
 
@@ -273,19 +273,19 @@ WORKDIR /firewall/
 
 Une fois l'infrastructure détaillée ci-dessus est mise en place, il suffit d'effectuer les deux commandes suivants : 
 
-``
+```
 docker-compose build
-``
-``
+```
+```
 docker-compose up
-``
+```
 
 Le serveur va alors se lancer et mettre à disposition une page web. Le client va effectuer un *curl* afin de récupérer et afficher le contenu de la page. 
 Et enfin, le firewall va mettre en place plusieurs règles afin de filtrer les adresses IP accédant au serveur
 
 
 ## Schéma finale de l'infrastructure
-``
+```
 												VM 															# Machine virtuelle avec une interface eth0 en 192.168.1.67/24
 									  (eth0: 192.168.1.67/24)
 												|
@@ -301,4 +301,4 @@ Et enfin, le firewall va mettre en place plusieurs règles afin de filtrer les a
 				 Serveur 						Client					   Firewall							# Les containers 
 			 (172.17.0.2/16)				(172.17.0.3/16)				(172.17.0.4/16)
 			
-``
+```
